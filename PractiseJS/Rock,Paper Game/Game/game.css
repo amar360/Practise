@@ -1,0 +1,66 @@
+@keyframes count-in
+{
+    0%{
+        transform: translateY(0)
+    }
+    60%{
+        transform: translateY(-100px)
+    }
+    100%{
+        transform: translateY(0)
+    }
+}
+
+.count-in
+{
+    animation: .7s count-in 3;
+}
+
+
+
+.container
+{
+    width: 650px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 25px;
+ 
+}
+
+.player
+{
+  
+	width: 150px;
+    height: 150px;
+    margin: 150px 50px;
+    display: inline-block;
+ }
+.player p{
+    font-weight: 700;
+}
+.player div{
+    width: 100%;
+    height: 100%;
+}
+.Rock
+{
+    background-image: url(./images/rock.png);
+}
+.Paper
+{
+    background-image: url(./images/paper.png);
+}
+.Sci
+{
+    background-image: url(./images/sci.png);
+}
+
+.Rock, .Paper, .Sci{
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.startBtn{
+    border:none;
+    padding: 10px 90px;
+}
+

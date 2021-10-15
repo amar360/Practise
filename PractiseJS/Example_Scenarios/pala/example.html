@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    
+
+</head>
+<body>
+    
+        <h1 id=p style="text-align: center"></h1>
+        <br>
+
+        <p id=demo style="text-align: center; color: brown;font-size: 90px;" ></p>
+
+<script>
+
+var sentence = 'Anna Anna';
+
+// console.log(sentence.length);
+
+var isPalindrome = (str) => {
+
+    str = str.toLowerCase().replace(/\W/g, '');
+
+//    console.log(str);
+    for(let i=0 ; i<=str.length ; i++)
+    {
+        if(str[i] !== str[str.length - 1 - i] )
+            return false;
+
+        else
+        return true;
+    }
+
+}
+
+var easyPalindrome = (str1) => {
+
+    str1 = str1.toLowerCase().replace(/\W/g, '');
+    
+    return str1 == str1.split('').replace().join('');
+    
+
+
+
+}
+
+document.getElementById("p").innerHTML = isPalindrome(sentence);
+document.getElementById("demo").innerHTML = isPalindrome(sentence);
+
+
+
+
+
+</script>
+    
+
+
+</body>
+</html>
