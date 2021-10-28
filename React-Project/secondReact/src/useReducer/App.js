@@ -3,7 +3,7 @@ import React, { useReducer, useState } from 'react';
 function reducer(state, action) {
   switch (action.type) {
     case 'add':
-      return 'add';
+      return action.payload;
     case 'del':
       return 'Del';
     default:
@@ -21,11 +21,11 @@ function App() {
     padding: '10px',
   };
 
-  const [state, dispatch] = useReducer(reducer, [])
-  const [name , setName] = useState('')
+  const [state, dispatch] = useReducer(reducer, []);
+  const [name, setName] = useState('');
 
   function changeName() {
-      setName('')
+    setName('');
   }
 
   function ChangeInput(e) {

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import './index.css';
 
 function App() {
   const [calc, setCalc] = useState('');
   const [results, setResults] = useState('');
 
-  const ops = ['/', '+', '-', '*', '.'];
+  const operators = ['/', '+', '-', '*', '.'];
 
   function digits() {
     const digits = [];
@@ -13,7 +14,7 @@ function App() {
       digits.push(
         <button onClick={() => updateCal(i.toString())} key={i}>
           {i}
-        </button>,
+        </button>
       );
     }
     return digits;
@@ -21,29 +22,30 @@ function App() {
 
   function updateCal(value) {
     if (
-      (ops.includes(value) && calc === '') ||
-      (ops.includes(value) && ops.includes(calc.slice(-1)))
+      (operators.includes(value) && calc === '') ||
+      (operators.includes(value) && operators.includes(calc.slice(-1)))
     ) {
       return;
     }
 
     setCalc(calc + value);
 
-	if(!ops.includes(value)) {
-		setResults(eval(calc + value).toString());
-	}
+    if (!operators.includes(value)) {
+      setResults(eval(calc + value).toString());
+    }
   }
 
   function calculate() {
-	  setCalc(calc);
+    setCalc(calc);
   }
 
   function deleteLast() {
-	  if(calc === '') {
-		  return ;
-	  }
-	  const value = calc.slice(0, -1);
-	  setCalc(value);
+    if (calc === '') {
+      return;
+    }
+    const value = calc.slice(0, -1);
+    console.log('VALUE', value);
+    setCalc(value);
   }
 
   return (

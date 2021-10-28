@@ -24,6 +24,47 @@ console.log(fruits.indexOf('pears'));
 let nestedArray = [['deep'], [['deeper'], ['deeper']], [[['deepest'], ['deepest']], [[['deepest-est?']]]]];
 console.log(nestedArray[2][1][0][0][0]);
 
+const input = [
+  {
+    title: 'some title',
+    channel_id: '123we',
+    options: [
+      {
+        channel_id: 'abc',
+        image: 'http://asdasd.com/all-inclusive-block-img.jpg',
+        title: 'All-Inclusive',
+        options: [
+          {
+            channel_id: 'dsa2',
+            title: 'Some Recommends',
+            options: [
+              {
+                image: 'http://www.asdasd.com',
+                title: 'Sandals',
+                id: '1',
+                content: {},
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+];
+
+console.log(findNestedObj(input, 'id', '1'));
+
+function findNestedObj(entireObj, keyToFind, valToFind) {
+  let foundObj;
+  JSON.stringify(entireObj, (_, nestedValue) => {
+    if (nestedValue && nestedValue[keyToFind] === valToFind) {
+      foundObj = nestedValue;
+    }
+    return nestedValue;
+  });
+  return foundObj;
+}
+
 // factorial
 function factorialize(num) {
   return num < 2 ? 1 : num * factorialize(num - 1);
@@ -113,7 +154,7 @@ function getIndexToIns(arr, num) {
     });
   return getIndex;
 }
-console.log(getIndexToIns([60, 40, 20, 70], 50));
+console.log(getIndexToIns([60, 40, 20, 70], 60));
 
 // split array in 2D
 
@@ -165,7 +206,7 @@ function sumAll(arr) {
   return sum;
 }
 
-console.log(sumAll([10, 5]));
+console.log(sumAll([5, 10]));
 
 // difference of 2 arrays
 
@@ -180,11 +221,12 @@ console.log(diffArray([1, 2, 3, 5, 6], [1, 2, 3, 4, 5]));
 
 // remove arguments
 function destroyer(arr, ...args) {
+  console.log(Object.values(arguments));
   console.log(Object.values(arguments).slice(1));
   return arr.filter((item) => args.indexOf(item) === -1);
 }
 
-console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
+console.log(destroyer([1, 2, 3, 1, 2, 3, 4], 2, 3, 1));
 
 // replace string
 
@@ -286,7 +328,7 @@ const fruitBasket = [
 const count1 = fruitBasket.reduce((tally, fruit) => {
   tally[fruit] = (tally[fruit] || 0) + 1;
   return tally;
-}, {});
+}, []);
 
 console.log(count1);
 
